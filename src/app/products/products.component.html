@@ -1,0 +1,39 @@
+<div class="container">
+
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-12">
+            <div class="title-wrapper">
+                <h2>FARZI STORE</h2>
+                <button type="button" class="btn btn-dark btn-sm btn-up" routerLink="addProducts">Add!</button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <table *ngIf="Products.length > 0" class="table table-borderless">
+        <thead>
+            <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of Products">
+                <td>{{p.category}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+
+                <td>
+                    <button type="button" class="btn btn-dark" routerLink="editProducts/{{p.id}}">Edit</button>
+                    &nbsp; &nbsp;
+                    <button type="button" class="btn btn-danger" (click)="deleteProducts(p.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
